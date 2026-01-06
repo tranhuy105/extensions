@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "updated": "2026-01-07T00:10:00Z",
+  "extensions": {
+    "mangaraw": {
+      "name": "Mangaraw",
+      "version": 2,
+      "language": "ja",
+      "nsfw": false,
+      "status": "working",
+      "configFile": "extensions/mangaraw.json"
+    },
+    "mangaraw_best": {
+      "name": "Mangaraw Best",
+      "version": 1,
+      "language": "ja",
+      "nsfw": false,
+      "status": "working",
+      "configFile": "extensions/mangaraw_best.json"
+    },
+    "weloma": {
+      "name": "Weloma",
+      "version": 1,
+      "language": "ja",
+      "nsfw": false,
+      "status": "working",
+      "configFile": "extensions/weloma.json"
+    },
+    "spider": {
+      "name": "Nhện",
+      "version": 1,
+      "language": "global",
+      "nsfw": true,
+      "status": "working",
+      "configFile": "extensions/spider.json"
+    }
+  }
+}

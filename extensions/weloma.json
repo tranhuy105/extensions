@@ -1,0 +1,57 @@
+{
+  "id": "weloma",
+  "name": "Weloma",
+  "baseUrl": "https://weloma.art",
+  "language": "ja",
+  "version": 1,
+  "nsfw": false,
+  
+  "popularManga": {
+    "url": "/manga-list.html?page={page}&sort=last_update&sort_type=DESC",
+    "list": ".thumb-item-flow",
+    "item": {
+      "url": ".series-title a@href | resolveUrl",
+      "title": ".series-title a@text | replace:(manga): | replace:- Raw: | replace:raw: | trim",
+      "cover": ".content.img-in-ratio@style | regex:url\\(['\"]?(.+?)['\"]?\\) | replace:?imgmax=100: | resolveUrl"
+    },
+    "hasNext": "ul.pagination-v4 li:has(a.active) + li a"
+  },
+  
+  "searchManga": {
+    "url": "/manga-list.html?name={query}&page={page}",
+    "list": ".thumb-item-flow",
+    "item": {
+      "url": ".series-title a@href | resolveUrl",
+      "title": ".series-title a@text | replace:(manga): | replace:- Raw: | replace:raw: | trim",
+      "cover": ".content.img-in-ratio@style | regex:url\\(['\"]?(.+?)['\"]?\\) | replace:?imgmax=100: | resolveUrl"
+    },
+    "hasNext": "ul.pagination-v4 li:has(a.active) + li a"
+  },
+  
+  "mangaDetails": {
+    "title": "h3@text | replace:(manga): | replace:- Raw: | replace:raw: | trim",
+    "cover": ".info-cover img@src | resolveUrl",
+    "description": ".summary-content p@text || .summary-content@text | trim",
+    "author": ".manga-info a[href*=\"manga-author\"]@text | trim",
+    "status": ".manga-info a[href*=\"manga-on-going\"]@text || .manga-info a[href*=\"manga-completed\"]@text | status",
+    "genres": ".manga-info a[href*=\"manga-list-genre\"]@text"
+  },
+  
+  "chapterList": {
+    "list": ".list-chapters.at-series a",
+    "item": {
+      "url": "@href | resolveUrl",
+      "title": ".chapter-name@text | trim",
+      "chapterNumber": ".chapter-name@text | regex:/([0-9.]+)/ | toNumber"
+    }
+  },
+  
+  "pageList": {
+    "list": "#chapter-images img.chapter-img",
+    "item": {
+      "url": "@data-img | base64 | resolveUrl"
+    }
+  },
+  
+  "mangaIdFromUrl": "/(\\d+)/?$"
+}

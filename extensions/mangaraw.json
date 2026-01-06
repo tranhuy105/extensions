@@ -1,0 +1,54 @@
+{
+  "id": "mangaraw",
+  "name": "Mangaraw",
+  "baseUrl": "https://mangarawad.blog",
+  "language": "ja",
+  "version": 2,
+  "nsfw": false,
+  
+  "popularManga": {
+    "url": "/?page={page}",
+    "list": "[class*=\"manga-item_item\"]",
+    "item": {
+      "url": "a@href | resolveUrl",
+      "title": "h3@text | trim",
+      "cover": "img@data-original || img@src | resolveUrl"
+    },
+    "hasNext": "[class*=\"pagination\"] a.bg-blue-500 + a"
+  },
+  
+  "searchManga": {
+    "url": "/search/manga?keyword={query}&page={page}",
+    "list": "[class*=\"manga-item_item\"]",
+    "item": {
+      "url": "a@href | resolveUrl",
+      "title": "h3@text | trim",
+      "cover": "img@data-original || img@src | resolveUrl"
+    },
+    "hasNext": "[class*=\"pagination\"] a.bg-blue-500 + a"
+  },
+  
+  "mangaDetails": {
+    "title": "h1@text | trim",
+    "cover": "meta[itemprop=\"image\"]@content || img[src*=\"cover\"]@src | resolveUrl",
+    "description": "div.text-white.whitespace-pre-line p@text || div.text-white.whitespace-pre-line@text || meta[property=\"og:description\"]@content | trim"
+  },
+  
+  "chapterList": {
+    "list": "a[href*=\"/chapter-\"]",
+    "item": {
+      "url": "@href | resolveUrl",
+      "title": "@text | trim",
+      "chapterNumber": "@href | regex:/chapter-([0-9.]+)/ | toNumber"
+    }
+  },
+  
+  "pageList": {
+    "list": ".page-chapter img",
+    "item": {
+      "url": "@src || @data-original || @data-cdn | resolveUrl"
+    }
+  },
+  
+  "mangaIdFromUrl": "/manga/([^/]+)"
+}

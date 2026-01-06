@@ -1,0 +1,61 @@
+{
+  "id": "spider",
+  "name": "Spider",
+  "baseUrl": "https://nhentai.net",
+  "language": "global",
+  "version": 1,
+  "nsfw": true,
+  
+  "popularManga": {
+    "url": "/?page={page}",
+    "list": ".container.index-container:not(.index-popular) .gallery",
+    "item": {
+      "url": "a.cover@href | resolveUrl",
+      "id": "a.cover@href | regex:/\\/g\\/(\\d+)/",
+      "title": ".caption@text | trim",
+      "language": "@data-tags | match:\\\\b12227\\\\b:en:\\\\b29963\\\\b:zh:\\\\b6346\\\\b:ja: || .caption@text | match:english:en:eng:en:chinese:zh:中国:zh:中文:zh:korean:ko:ja",
+      "cover": "a.cover img@data-src | replace://t:https%3A%2F%2Ft | replace://i:https%3A%2F%2Fi | urlDecode | resolveUrl || a.cover img@src | replace://t:https%3A%2F%2Ft | replace://i:https%3A%2F%2Fi | urlDecode | resolveUrl"
+    },
+    "hasNext": ".pagination a.next"
+  },
+  
+  "searchManga": {
+    "url": "/search/?q={query}&page={page}",
+    "list": ".gallery",
+    "item": {
+      "url": "a.cover@href | resolveUrl",
+      "id": "a.cover@href | regex:/\\/g\\/(\\d+)/",
+      "title": ".caption@text | trim",
+      "language": "@data-tags | match:\\\\b12227\\\\b:en:\\\\b29963\\\\b:zh:\\\\b6346\\\\b:ja: || .caption@text | match:english:en:eng:en:chinese:zh:中国:zh:中文:zh:korean:ko:ja",
+      "cover": "a.cover img@data-src | replace://t:https%3A%2F%2Ft | replace://i:https%3A%2F%2Fi | urlDecode | resolveUrl || a.cover img@src | replace://t:https%3A%2F%2Ft | replace://i:https%3A%2F%2Fi | urlDecode | resolveUrl"
+    },
+    "hasNext": ".pagination a.next"
+  },
+  
+  "mangaDetails": {
+    "title": "#info h1.title span.pretty@text || #info h1.title@text | trim",
+    "cover": "#cover img@data-src | replace://t:https%3A%2F%2Ft | replace://i:https%3A%2F%2Fi | urlDecode | resolveUrl || #cover img@src | replace://t:https%3A%2F%2Ft | replace://i:https%3A%2F%2Fi | urlDecode | resolveUrl",
+    "description": "#tags .tag-container:has(a[href*=\"/artist/\"]) a.tag span.name@text | trim",
+    "author": "#tags .tag-container:has(a[href*=\"/artist/\"]) a.tag span.name@text | trim",
+    "genres": "#tags .tag-container:has(a[href*=\"/tag/\"]) a.tag span.name@text",
+    "status": "completed"
+  },
+  
+  "chapterList": {
+    "list": "body",
+    "item": {
+      "url": "#cover a@href | regex:/^\\/g\\/\\d+\\// | resolveUrl",
+      "title": "h1.title span.pretty@text || h1.title@text | default:Full Gallery | trim",
+      "chapterNumber": "h1.title | match:.:1 | toNumber"
+    }
+  },
+  
+  "pageList": {
+    "list": "#thumbnail-container .thumb-container a img",
+    "item": {
+      "url": "@data-src | replace://t:https%3A%2F%2Fi | replace:t.jpg:.jpg | replace:t.png:.png | replace:t.webp:.webp | replace:.webp.webp:.webp | replace:.jpg.jpg:.jpg | replace:.png.png:.png | urlDecode | resolveUrl || @src | replace://t:https%3A%2F%2Fi | replace:t.jpg:.jpg | replace:t.png:.png | replace:t.webp:.webp | replace:.webp.webp:.webp | replace:.jpg.jpg:.jpg | replace:.png.png:.png | urlDecode | resolveUrl"
+    }
+  },
+  
+  "mangaIdFromUrl": "/g/(\\d+)"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "mangaraw_best",
+  "name": "Mangaraw Best",
+  "baseUrl": "https://mangaraw.best",
+  "language": "ja",
+  "version": 1,
+  "nsfw": false,
+  
+  "popularManga": {
+    "url": "/manga-list?page={page}",
+    "list": ".manga-vertical",
+    "item": {
+      "url": "h3 a@href | resolveUrl",
+      "title": "h3 a@text | trim",
+      "cover": ".cover-frame img@data-src || .cover-frame img@src | resolveUrl"
+    }
+  },
+  
+  "searchManga": {
+    "url": "/search?sort=-updated_at&filter[name]={query}&filter[status]=2,1&page={page}",
+    "list": ".manga-vertical",
+    "item": {
+      "url": "h3 a@href | resolveUrl",
+      "title": "h3 a@text | trim",
+      "cover": ".cover-frame img@data-src || .cover-frame img@src | resolveUrl"
+    },
+    "hasNext": ".pagination-v4 li.active + li a"
+  },
+  
+  "mangaDetails": {
+    "title": "h1@text | trim",
+    "cover": ".cover-frame img@data-src || .cover-frame img@src | resolveUrl",
+    "description": "div.manga-pilot@text | trim"
+  },
+  
+  "chapterList": {
+    "list": "#chapterList ul a",
+    "item": {
+      "url": "@href | resolveUrl",
+      "id": "@href | regex:/\\/raw\\/.*?\\/([^\\/]+)/",
+      "chapterNumber": "@href | regex:/(\\d+(?:\\.\\d+)?)\\/?$/ || li span@text | regex:/(\\d+(?:\\.\\d+)?)/ || li@text | regex:/(\\d+(?:\\.\\d+)?)/ | toNumber",
+      "title": "li .grow.truncate span@text || li@text | trim"
+    }
+  },
+  
+  "pageList": {
+    "list": "div.text-center img:not([src*=\"blogger\"]):not([data-src*=\"blogger\"])",
+    "item": {
+      "url": "@src || @data-src | resolveUrl"
+    }
+  },
+  
+  "mangaIdFromUrl": "/raw/([^/]+)"
+}
