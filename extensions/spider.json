@@ -3,7 +3,7 @@
   "name": "Spider",
   "baseUrl": "https://nhentai.net",
   "language": "global",
-  "version": 1,
+  "version": 2,
   "nsfw": true,
   
   "popularManga": {
@@ -42,13 +42,12 @@
   },
   
   "chapterList": {
-    "list": "body",
-    "item": {
-      "url": "#cover a@href | regex:/^\\/g\\/\\d+\\// | resolveUrl",
-      "title": "h1.title span.pretty@text || h1.title@text | default:Full Gallery | trim",
-      "chapterNumber": "h1.title | match:.:1 | toNumber"
+    "generated": {
+      "title": "Full Gallery",
+      "chapterNumber": 1
     }
   },
+  
   
   "pageList": {
     "list": "#thumbnail-container .thumb-container a img",
