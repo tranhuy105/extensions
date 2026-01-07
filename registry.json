@@ -20,7 +20,7 @@
     },
     "weloma": {
       "name": "Weloma",
-      "version": 2,
+      "version": 3,
       "language": "ja",
       "nsfw": false,
       "status": "working",

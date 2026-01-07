@@ -3,7 +3,7 @@
   "name": "Weloma",
   "baseUrl": "https://weloma.art",
   "language": "ja",
-  "version": 2,
+  "version": 3,
   "nsfw": false,
 
   "genres": [
@@ -48,7 +48,7 @@
     "item": {
       "url": ".series-title a@href | resolveUrl",
       "title": ".series-title a@text | replace:(manga): | replace:- Raw: | replace:raw: | trim",
-      "cover": ".content.img-in-ratio@style | regex:url\\(['\"]?(.+?)['\"]?\\) | replace:?imgmax=100: | resolveUrl"
+      "cover": ".content.img-in-ratio@style | regex:url\\(['\"]?([^'\"]+?)['\"]?\\) | replace:?imgmax=100: | resolveUrl"
     },
     "hasNext": "ul.pagination-v4 li:has(a.active) + li a"
   },
@@ -59,7 +59,7 @@
     "item": {
       "url": ".series-title a@href | resolveUrl",
       "title": ".series-title a@text | replace:(manga): | replace:- Raw: | replace:raw: | trim",
-      "cover": ".content.img-in-ratio@style | regex:url\\(['\"]?(.+?)['\"]?\\) | replace:?imgmax=100: | resolveUrl"
+      "cover": ".content.img-in-ratio@style | regex:url\\(['\"]?([^'\"]+?)['\"]?\\) | replace:?imgmax=100: | resolveUrl"
     },
     "hasNext": "ul.pagination-v4 li:has(a.active) + li a"
   },
@@ -70,7 +70,7 @@
     "item": {
       "url": ".series-title a@href | resolveUrl",
       "title": ".series-title a@text | replace:(manga): | replace:- Raw: | replace:raw: | trim",
-      "cover": ".content.img-in-ratio@style | regex:url\\(['\"]?(.+?)['\"]?\\) | replace:?imgmax=100: | resolveUrl"
+      "cover": ".content.img-in-ratio@style | regex:url\\(['\"]?([^'\"]+?)['\"]?\\) | replace:?imgmax=100: | resolveUrl"
     },
     "hasNext": "ul.pagination-v4 li:has(a.active) + li a"
   },
@@ -81,7 +81,7 @@
     "item": {
       "url": ".series-title a@href | resolveUrl",
       "title": ".series-title a@text | replace:(manga): | replace:- Raw: | replace:raw: | trim",
-      "cover": ".content.img-in-ratio@style | regex:url\\(['\"]?(.+?)['\"]?\\) | replace:?imgmax=100: | resolveUrl"
+      "cover": ".content.img-in-ratio@style | regex:url\\(['\"]?([^'\"]+?)['\"]?\\) | replace:?imgmax=100: | resolveUrl"
     },
     "hasNext": "ul.pagination-v4 li:has(a.active) + li a"
   },
