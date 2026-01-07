@@ -12,7 +12,7 @@
     },
     "mangaraw_best": {
       "name": "Mangaraw Best",
-      "version": 1,
+      "version": 2,
       "language": "ja",
       "nsfw": false,
       "status": "working",
@@ -20,7 +20,7 @@
     },
     "weloma": {
       "name": "Weloma",
-      "version": 1,
+      "version": 2,
       "language": "ja",
       "nsfw": false,
       "status": "working",

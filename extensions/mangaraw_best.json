@@ -3,17 +3,72 @@
   "name": "Mangaraw Best",
   "baseUrl": "https://mangaraw.best",
   "language": "ja",
-  "version": 1,
+  "version": 2,
   "nsfw": false,
+
+  "genres": [
+    { "id": "action", "name": "Action" },
+    { "id": "adventure", "name": "Adventure" },
+    { "id": "comedy", "name": "Comedy" },
+    { "id": "drama", "name": "Drama" },
+    { "id": "ecchi", "name": "Ecchi" },
+    { "id": "fantasy", "name": "Fantasy" },
+    { "id": "harem", "name": "Harem" },
+    { "id": "historical", "name": "Historical" },
+    { "id": "horror", "name": "Horror" },
+    { "id": "isekai", "name": "Isekai" },
+    { "id": "martial-arts", "name": "Martial Arts" },
+    { "id": "mature", "name": "Mature" },
+    { "id": "mecha", "name": "Mecha" },
+    { "id": "mystery", "name": "Mystery" },
+    { "id": "psychological", "name": "Psychological" },
+    { "id": "romance", "name": "Romance" },
+    { "id": "school", "name": "School" },
+    { "id": "sci-fi", "name": "Sci-Fi" },
+    { "id": "seinen-2", "name": "Seinen" },
+    { "id": "shoujo", "name": "Shoujo" },
+    { "id": "shounen", "name": "Shounen" },
+    { "id": "slice-of-life", "name": "Slice of Life" },
+    { "id": "sports", "name": "Sports" },
+    { "id": "supernatural", "name": "Supernatural" },
+    { "id": "thriller", "name": "Thriller" },
+    { "id": "yaoi-2", "name": "Yaoi" },
+    { "id": "yuri-2", "name": "Yuri" }
+  ],
+
+
   
   "popularManga": {
-    "url": "/manga-list?page={page}",
+    "url": "/search?sort=-views_day&page={page}",
     "list": ".manga-vertical",
     "item": {
       "url": "h3 a@href | resolveUrl",
       "title": "h3 a@text | trim",
       "cover": ".cover-frame img@data-src || .cover-frame img@src | resolveUrl"
-    }
+    },
+    "hasNext": ".pagination-v4 li.active + li a"
+  },
+
+  "latestManga": {
+    "url": "/search?sort=-updated_at&page={page}",
+    "list": ".manga-vertical",
+    "item": {
+      "url": "h3 a@href | resolveUrl",
+      "title": "h3 a@text | trim",
+      "cover": ".cover-frame img@data-src || .cover-frame img@src | resolveUrl"
+    },
+    "hasNext": ".pagination-v4 li.active + li a"
+  },
+  
+  "genreManga": {
+    "url": "/genre/{genreId}?page={page}",
+    "list": ".manga-vertical",
+    "item": {
+      "url": "h3 a@href | resolveUrl",
+      "title": "h3 a@text | trim",
+      "cover": ".cover-frame img@data-src || .cover-frame img@src | resolveUrl"
+    },
+    "hasNext": ".pagination-v4 li.active + li a"
   },
   
   "searchManga": {
