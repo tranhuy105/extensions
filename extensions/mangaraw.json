@@ -1,13 +1,47 @@
 {
   "id": "mangaraw",
   "name": "Mangaraw",
-  "baseUrl": "https://mangarawad.blog",
+  "baseUrl": "https://mangarawad.art",
   "language": "ja",
-  "version": 2,
+  "version": 3,
   "nsfw": false,
   
+  "genres": [
+    { "id": "Ecchi", "name": "Ecchi" },
+    { "id": "エロい", "name": "エロい" },
+    { "id": "コメディ", "name": "コメディ" },
+    { "id": "ロマンス", "name": "ロマンス" },
+    { "id": "アクション", "name": "アクション" },
+    { "id": "スポーツ", "name": "スポーツ" },
+    { "id": "ファンタジー", "name": "ファンタジー" },
+    { "id": "SF", "name": "SF" },
+    { "id": "異世界", "name": "異世界" }
+  ],
+  
   "popularManga": {
+    "url": "/hot?page={page}",
+    "list": "[class*=\"manga-item_item\"]",
+    "item": {
+      "url": "a@href | resolveUrl",
+      "title": "h3@text | trim",
+      "cover": "img@data-original || img@src | resolveUrl"
+    },
+    "hasNext": "[class*=\"pagination\"] a.bg-blue-500 + a"
+  },
+
+  "latestManga": {
     "url": "/?page={page}",
+    "list": "[class*=\"manga-item_item\"]",
+    "item": {
+      "url": "a@href | resolveUrl",
+      "title": "h3@text | trim",
+      "cover": "img@data-original || img@src | resolveUrl"
+    },
+    "hasNext": "[class*=\"pagination\"] a.bg-blue-500 + a"
+  },
+  
+  "genreManga": {
+    "url": "/search/manga?genre={genreId}&page={page}",
     "list": "[class*=\"manga-item_item\"]",
     "item": {
       "url": "a@href | resolveUrl",
@@ -52,3 +86,4 @@
   
   "mangaIdFromUrl": "/manga/([^/]+)"
 }
+
