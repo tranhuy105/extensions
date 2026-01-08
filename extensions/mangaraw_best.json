@@ -3,7 +3,7 @@
   "name": "Mangaraw Best",
   "baseUrl": "https://mangaraw.best",
   "language": "ja",
-  "version": 2,
+  "version": 3,
   "nsfw": false,
 
   "genres": [
@@ -46,7 +46,7 @@
       "title": "h3 a@text | trim",
       "cover": ".cover-frame img@data-src || .cover-frame img@src | resolveUrl"
     },
-    "hasNext": ".pagination-v4 li.active + li a"
+    "hasNext": "a.paging_prevnext.next li:not([class*=disabled])"
   },
 
   "latestManga": {
@@ -57,7 +57,7 @@
       "title": "h3 a@text | trim",
       "cover": ".cover-frame img@data-src || .cover-frame img@src | resolveUrl"
     },
-    "hasNext": ".pagination-v4 li.active + li a"
+    "hasNext": "a.paging_prevnext.next li:not([class*=disabled])"
   },
   
   "genreManga": {
@@ -68,7 +68,7 @@
       "title": "h3 a@text | trim",
       "cover": ".cover-frame img@data-src || .cover-frame img@src | resolveUrl"
     },
-    "hasNext": ".pagination-v4 li.active + li a"
+    "hasNext": "a.paging_prevnext.next li:not([class*=disabled])"
   },
   
   "searchManga": {
@@ -79,7 +79,7 @@
       "title": "h3 a@text | trim",
       "cover": ".cover-frame img@data-src || .cover-frame img@src | resolveUrl"
     },
-    "hasNext": ".pagination-v4 li.active + li a"
+    "hasNext": "a.paging_prevnext.next li:not([class*=disabled])"
   },
   
   "mangaDetails": {

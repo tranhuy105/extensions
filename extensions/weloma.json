@@ -3,7 +3,7 @@
   "name": "Weloma",
   "baseUrl": "https://weloma.art",
   "language": "ja",
-  "version": 4,
+  "version": 5,
   "nsfw": false,
 
   "genres": [
@@ -54,7 +54,7 @@
   },
 
   "latestManga": {
-    "url": "/manga-list.html?page={page}&sort=updated_at&sort_type=DESC",
+    "url": "/manga-list.html?page={page}&sort=last_update&sort_type=DESC",
     "list": ".thumb-item-flow",
     "item": {
       "url": ".series-title a@href | resolveUrl",
