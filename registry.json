@@ -28,7 +28,7 @@
     },
     "spider": {
       "name": "Nhện",
-      "version": 3,
+      "version": 4,
       "language": "global",
       "nsfw": true,
       "status": "working",

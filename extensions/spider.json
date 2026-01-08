@@ -3,7 +3,7 @@
   "name": "Spider",
   "baseUrl": "https://nhentai.net",
   "language": "global",
-  "version": 3,
+  "version": 4,
   "nsfw": true,
   
   "popularManga": {
@@ -52,7 +52,7 @@
   "pageList": {
     "list": "#thumbnail-container .thumb-container a img",
     "item": {
-      "url": "@data-src | replaceRegex:/^https?:\\/\\/t(\\d+)\\.nhentai\\.net\\/galleries\\/(\\d+)\\/(\\d+)t(\\.[a-z]+)$/i:https://i$1.nhentai.net/galleries/$2/$3$4 | urlDecode | resolveUrl || @src | replaceRegex:/^https?:\\/\\/t(\\d+)\\.nhentai\\.net\\/galleries\\/(\\d+)\\/(\\d+)t(\\.[a-z]+)$/i:https://i$1.nhentai.net/galleries/$2/$3$4 | urlDecode | resolveUrl"
+      "url": "@data-src | replace://t:https%3A%2F%2Fi | replace:t.jpg:.jpg | replace:t.png:.png | replace:t.webp:.webp | replace:.webp.webp:.webp | replace:.jpg.webp:.jpg | replace:.png.webp:.png | urlDecode | resolveUrl || @src | replace://t:https%3A%2F%2Fi | replace:t.jpg:.jpg | replace:t.png:.png | replace:t.webp:.webp | replace:.webp.webp:.webp | replace:.jpg.webp:.jpg | replace:.png.webp:.png | urlDecode | resolveUrl"
     }
   },
   
